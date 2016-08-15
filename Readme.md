@@ -253,3 +253,5 @@ The API has been deployed to Heroku through the Github connector and is availabl
 	https://roulette-api.herokuapp.com/
 	
 To use it replace the localhost:8080 endpoints with the link above
+
+There can be a slight delay when loading the api for the first time on heroku due to it being on the free plan and heroku takes a moment to reload the application from cold
