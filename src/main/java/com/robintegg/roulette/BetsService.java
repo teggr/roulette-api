@@ -6,6 +6,8 @@ package com.robintegg.roulette;
  * @author robin
  *
  */
-public interface BetsService {
+interface BetsService {
+
+	BettingOptions getBettingOptions(TableLayout layout);
 
 }

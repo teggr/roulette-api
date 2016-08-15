@@ -6,4 +6,6 @@ public interface RouletteComponent {
 
 	Collection<TableLayout> getAvailableTables();
 
+	BettingOptions getBettingOptions(String tableLayoutName);
+
 }

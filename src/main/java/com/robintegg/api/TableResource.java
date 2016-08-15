@@ -1,13 +1,19 @@
 package com.robintegg.api;
 
-import com.robintegg.roulette.TableLayout;
+import org.springframework.hateoas.ResourceSupport;
 
-public class TableResource {
+import com.robintegg.roulette.BettingOptions;
 
-	private TableLayout layout;
+public class TableResource extends ResourceSupport {
 
-	public TableResource(TableLayout layout) {
-		this.layout = layout;
+	private BettingOptions bettingOptions;
+
+	public TableResource(BettingOptions bettingOptions) {
+		this.bettingOptions = bettingOptions;
+	}
+
+	public BettingOptions getBets() {
+		return bettingOptions;
 	}
 
 }
