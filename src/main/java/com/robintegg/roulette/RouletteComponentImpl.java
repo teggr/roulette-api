@@ -5,6 +5,9 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.robintegg.roulette.options.BettingOptions;
+import com.robintegg.roulette.options.BettingOptionsService;
+
 @Component
 public class RouletteComponentImpl implements RouletteComponent {
 

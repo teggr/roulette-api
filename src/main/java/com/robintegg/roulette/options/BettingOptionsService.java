@@ -1,4 +1,6 @@
-package com.robintegg.roulette;
+package com.robintegg.roulette.options;
+
+import com.robintegg.roulette.TableLayout;
 
 /**
  * Provides the types of bet available to play
@@ -6,7 +8,7 @@ package com.robintegg.roulette;
  * @author robin
  *
  */
-interface BettingOptionsService {
+public interface BettingOptionsService {
 
 	BettingOptions getBettingOptions(TableLayout layout);
 

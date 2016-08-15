@@ -1,4 +1,8 @@
-package com.robintegg.roulette;
+package com.robintegg.roulette.options;
+
+import com.robintegg.roulette.Bet;
+import com.robintegg.roulette.Marker;
+import com.robintegg.roulette.TableLayout;
 
 public class SplitBet extends InsideBettingOption {
 

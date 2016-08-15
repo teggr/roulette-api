@@ -1,5 +1,7 @@
 package com.robintegg.roulette;
 
+import com.robintegg.roulette.options.BettingOption;
+
 public class Winning {
 
 	private double calculatedWin;

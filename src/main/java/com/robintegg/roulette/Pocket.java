@@ -58,7 +58,7 @@ public class Pocket {
 		return this.number.equals(DOUBLE_ZERO);
 	}
 
-	int getNumberAsInt() {
+	public int getNumberAsInt() {
 		return Integer.parseInt(number);
 	}
 

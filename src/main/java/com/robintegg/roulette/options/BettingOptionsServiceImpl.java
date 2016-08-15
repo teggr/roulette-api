@@ -1,9 +1,11 @@
-package com.robintegg.roulette;
+package com.robintegg.roulette.options;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+
+import com.robintegg.roulette.TableLayout;
 
 @Service
 class BettingOptionsServiceImpl implements BettingOptionsService {

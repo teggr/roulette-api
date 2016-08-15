@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import com.robintegg.roulette.options.BettingOption;
+import com.robintegg.roulette.options.BettingOptionsService;
+
 public class Croupier implements BetValidator {
 
 	private String name;

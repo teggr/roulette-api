@@ -5,7 +5,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 import org.springframework.hateoas.ResourceSupport;
 
-import com.robintegg.roulette.BettingOptions;
+import com.robintegg.roulette.options.BettingOptions;
 
 public class TableResource extends ResourceSupport {
 

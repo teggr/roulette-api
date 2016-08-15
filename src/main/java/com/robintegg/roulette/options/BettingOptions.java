@@ -1,4 +1,4 @@
-package com.robintegg.roulette;
+package com.robintegg.roulette.options;
 
 import java.util.Collection;
 

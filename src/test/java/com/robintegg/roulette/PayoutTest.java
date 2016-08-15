@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.robintegg.roulette.options.Payout;
+
 public class PayoutTest {
 
 	@Test

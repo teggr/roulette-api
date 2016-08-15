@@ -1,4 +1,7 @@
-package com.robintegg.roulette;
+package com.robintegg.roulette.options;
+
+import com.robintegg.roulette.Bet;
+import com.robintegg.roulette.Marker;
 
 public abstract class AbstractBettingOption implements BettingOption {
 
