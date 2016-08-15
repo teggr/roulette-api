@@ -1,19 +1,21 @@
-# Product Selection Page Demo
+# Roulette API Demo
 
 ## Technical Choices
 
 
-## Running the application
+# Running the application
 
-### Requirements
+Spring boot application can be run through maven
+
+## Requirements
 
 * Java 8
 
-### Github
+## Github
 
 Clone a copy of this repository
 
-### Using Maven
+## Using Maven
 
 From the project root directory
 
@@ -23,7 +25,7 @@ or if you don't have maven installed use the packaged maven command (windows ./m
 
 	mvnw.cmd spring-boot:run
 
-## API Documentation
+# API Documentation
 
 All requests start at the root
 
@@ -162,7 +164,7 @@ Once the bet has been placed, the result will be returned and contain all the in
 	  }
 	}
 	
-## Service Management
+# Service Management
 
 Betting options can be managed at runtime through the JMX/Jolokia interface
 
@@ -228,7 +230,7 @@ May or may not return the High betting option
       },
      ...
 
-## Metrics for application performance monitoring
+# Metrics for application performance monitoring
 
 Metrics are exposed through the Spring boot metrics endpoint with extra dropwizard metrics goodness
 
@@ -244,3 +246,10 @@ In addition to the standard metrics we capture the following
 	  ...
 	}
 	
+# Live deployed endpoint
+
+The API has been deployed to Heroku through the Github connector and is available at
+
+	https://roulette-api.herokuapp.com/
+	
+To use it replace the localhost:8080 endpoints with the link above
