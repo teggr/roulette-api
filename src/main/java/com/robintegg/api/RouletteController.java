@@ -30,18 +30,27 @@ public class RouletteController {
 
 	private RouletteComponent roulette;
 
+	private RouletteMetricsCollector metricsCollector;
+
 	@Autowired
-	public RouletteController(RouletteComponent roulette) {
+	public RouletteController(RouletteComponent roulette, RouletteMetricsCollector metricsCollector) {
 		this.roulette = roulette;
+		this.metricsCollector = metricsCollector;
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Resource<RouletteResource> getRoulette() {
+
+		metricsCollector.newRequest();
+
 		return new Resource<>(new RouletteResource(roulette.getAvailableTables()));
 	}
 
 	@RequestMapping(path = "/{name}", method = RequestMethod.GET)
 	public Resource<TableResource> getTable(@PathVariable("name") String tableLayoutName) {
+
+		metricsCollector.newRequest();
+
 		return new Resource<>(new TableResource(tableLayoutName, roulette.getBettingOptions(tableLayoutName)));
 	}
 
@@ -50,6 +59,8 @@ public class RouletteController {
 			@RequestBody PlayerBets playerBets) throws InvalidBetsException {
 
 		logger.info("Placing bets {}", playerBets);
+
+		metricsCollector.newRequest();
 
 		BettingResult result = roulette.play(tableLayoutName, playerBets);
 

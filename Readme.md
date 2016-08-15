@@ -161,3 +161,86 @@ Once the bet has been placed, the result will be returned and contain all the in
 	    }
 	  }
 	}
+	
+## Service Management
+
+Betting options can be managed at runtime through the JMX/Jolokia interface
+
+To see a list of available betting options
+
+	http://localhost:8080/jolokia/exec/com.robintegg.manage:name=rouletteManager,type=RouletteManager/getOptions
+
+The "value" object contains the list
+	
+	{
+	  "request": {
+	    "mbean": "com.robintegg.manage:name=rouletteManager,type=RouletteManager",
+	    "type": "exec",
+	    "operation": "getOptions"
+	  },
+	  "value": [
+	    "High",
+	    "Red",
+	    "Straight/Single",
+	    "Low",
+	    "Black",
+	    "Split"
+	  ],
+	  "timestamp": 1471303110,
+	  "status": 200
+	}
+
+To toggle the enabled state of the option
+
+	http://localhost:8080/jolokia/exec/com.robintegg.manage:name=rouletteManager,type=RouletteManager/toggleOption/High
+	
+Reponse is simply confirmation
+
+	{
+	  "request": {
+	    "mbean": "com.robintegg.manage:name=rouletteManager,type=RouletteManager",
+	    "arguments": [
+	      "High"
+	    ],
+	    "type": "exec",
+	    "operation": "toggleOption"
+	  },
+	  "value": null,
+	  "timestamp": 1471303360,
+	  "status": 200
+	}
+	
+So depending on the toggled state
+
+	http://localhost:8080/api/roulette/European
+
+May or may not return the High betting option
+
+	...
+	{
+        "name": "High",
+        "description": "19 to 36 (High or Passe), A bet that the number will be in the chosen range.",
+        "type": "OUTSIDE",
+        "payout": {
+          "payoutAsString": "1 to 1",
+          "payout": 1
+        }
+      },
+     ...
+
+## Metrics for application performance monitoring
+
+Metrics are exposed through the Spring boot metrics endpoint with extra dropwizard metrics goodness
+
+	http://localhost:8080/metrics
+	
+In addition to the standard metrics we capture the following
+
+	{
+	  ...
+	  "roulette.api.requests.meanRate": 0.3375205584404997,
+	  "roulette.api.requests.fifteenMinuteRate": 1.1768965957837307,
+	  "roulette.api.requests.count": 9,
+	  ...
+	}
+	
