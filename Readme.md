@@ -2,6 +2,10 @@
 
 ## Technical Choices
 
+* Java 8 runtime
+* Spring Boot with HATEAOS extensions for REST API and actuator operations endpoints
+* Maven build system
+* Heroku for deployment
 
 # Running the application
 
