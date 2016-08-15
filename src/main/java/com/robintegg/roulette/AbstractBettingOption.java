@@ -1,12 +1,12 @@
 package com.robintegg.roulette;
 
-public abstract class AbstractBet implements Bet {
+public abstract class AbstractBettingOption implements BettingOption {
 
 	private String name;
 	private String description;
 	private WinningSpace winningSpace;
 
-	public AbstractBet(String name, String description, WinningSpace winningSpace) {
+	public AbstractBettingOption(String name, String description, WinningSpace winningSpace) {
 		this.name = name;
 		this.description = description;
 		this.winningSpace = winningSpace;
@@ -26,5 +26,16 @@ public abstract class AbstractBet implements Bet {
 	public Payout getPayout() {
 		return winningSpace.getPayout();
 	}
+
+	@Override
+	public double calculateWin(Marker marker, Bet bet) {
+		if (isWin(marker, bet)) {
+			return bet.getStake() + (bet.getStake() * getPayout().getPayout());
+		} else {
+			return 0.0;
+		}
+	}
+
+	protected abstract boolean isWin(Marker marker, Bet bet);
 
 }

@@ -1,10 +1,10 @@
 package com.robintegg.roulette;
 
-public abstract class InsideBet extends AbstractBet {
+public abstract class InsideBettingOption extends AbstractBettingOption {
 
 	private String chipPlacement;
 
-	public InsideBet(String name, String description, String chipPlacement, WinningSpace winningSpace) {
+	public InsideBettingOption(String name, String description, String chipPlacement, WinningSpace winningSpace) {
 		super(name, description, winningSpace);
 		this.chipPlacement = chipPlacement;
 	}

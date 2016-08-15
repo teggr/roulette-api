@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 public class RouletteComponentImpl implements RouletteComponent {
 
 	private TableLayoutService tableLayoutService;
-	private BetsService betsService;
+	private BettingOptionsService bettingOptionsService;
 
 	@Autowired
-	public RouletteComponentImpl(TableLayoutService tableLayoutService, BetsService betsService) {
+	public RouletteComponentImpl(TableLayoutService tableLayoutService, BettingOptionsService bettingOptionsService) {
 		this.tableLayoutService = tableLayoutService;
-		this.betsService = betsService;
+		this.bettingOptionsService = bettingOptionsService;
 	}
 
 	@Override
@@ -25,7 +25,28 @@ public class RouletteComponentImpl implements RouletteComponent {
 	@Override
 	public BettingOptions getBettingOptions(String tableLayoutName) {
 		TableLayout layout = tableLayoutService.getLayout(tableLayoutName);
-		return betsService.getBettingOptions(layout);
+		return bettingOptionsService.getBettingOptions(layout);
+	}
+
+	@Override
+	public BettingResult play(String tableLayoutName, PlayerBets playerBets) {
+
+		Player player = new Player(playerBets.getBets());
+
+		Croupier croupier = new Croupier("Pierre", bettingOptionsService);
+
+		TableLayout layout = tableLayoutService.getLayout(tableLayoutName);
+
+		RouletteTable rouletteTable = new RouletteTable(layout, croupier);
+
+		player.placeBets(rouletteTable);
+
+		Marker marker = croupier.spinWheel(rouletteTable);
+
+		Winnings winnings = croupier.makePayouts(marker, rouletteTable);
+
+		return new BettingResult(croupier, marker, winnings);
+
 	}
 
 }

@@ -40,30 +40,30 @@ public class Pocket {
 		if (isAZero()) {
 			return false;
 		}
-		return numberAsInt() % 2 != 0;
+		return getNumberAsInt() % 2 != 0;
 	}
 
 	public boolean isEven() {
 		if (isAZero()) {
 			return false;
 		}
-		return numberAsInt() % 2 == 0;
+		return getNumberAsInt() % 2 == 0;
 	}
 
 	public boolean isZero() {
-		return numberAsInt() == 0;
+		return getNumberAsInt() == 0;
 	}
 
 	public boolean isDoubleZero() {
 		return this.number.equals(DOUBLE_ZERO);
 	}
 
-	private int numberAsInt() {
+	int getNumberAsInt() {
 		return Integer.parseInt(number);
 	}
 
 	public boolean matchesRange(int start, int end) {
-		return numberAsInt() >= start && numberAsInt() <= end;
+		return getNumberAsInt() >= start && getNumberAsInt() <= end;
 	}
 
 	public Colour getColour() {

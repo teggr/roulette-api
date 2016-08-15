@@ -8,4 +8,6 @@ public interface RouletteComponent {
 
 	BettingOptions getBettingOptions(String tableLayoutName);
 
+	BettingResult play(String tableLayoutName, PlayerBets playerBets);
+
 }

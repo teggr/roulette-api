@@ -6,8 +6,10 @@ package com.robintegg.roulette;
  * @author robin
  *
  */
-interface BetsService {
+interface BettingOptionsService {
 
 	BettingOptions getBettingOptions(TableLayout layout);
+
+	BettingOption getBettingOption(String name);
 
 }

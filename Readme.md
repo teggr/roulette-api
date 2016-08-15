@@ -27,6 +27,7 @@ or if you don't have maven installed use the packaged maven command (windows ./m
 
 ### Opening the documentation
 
+	curl -H "Content-Type: application/json" -X POST -d '{}' http://localhost:8080/api/roulette/European
 
 ## Testing results
 

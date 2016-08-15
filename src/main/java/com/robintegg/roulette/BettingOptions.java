@@ -1,18 +1,17 @@
 package com.robintegg.roulette;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class BettingOptions {
 
-	private Collection<Bet> availableBets = new ArrayList<>();
+	private Collection<BettingOption> availableBets;
 
-	public Collection<Bet> getAvailableBets() {
-		return availableBets;
+	public BettingOptions(Collection<BettingOption> availableBets) {
+		this.availableBets = availableBets;
 	}
 
-	public void add(Bet bet) {
-		availableBets.add(bet);
+	public Collection<BettingOption> getAvailableBets() {
+		return availableBets;
 	}
 
 }
